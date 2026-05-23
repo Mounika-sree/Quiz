@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Test your knowledge with this interactive multiple-choice quiz application covering Web Development, JavaScript, and Computer Science." />
+  <title>QuizMaster — Test Your Knowledge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════ WELCOME SCREEN ═══════════════ -->
+  <section id="welcome-screen" class="screen active">
+    <div class="welcome-container">
+      <div class="logo-icon">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="32" cy="32" r="30" stroke="url(#grad1)" stroke-width="3"/>
+          <text x="32" y="40" text-anchor="middle" fill="url(#grad1)" font-size="28" font-weight="800" font-family="Inter">?</text>
+          <defs><linearGradient id="grad1" x1="0" y1="0" x2="64" y2="64"><stop offset="0%" stop-color="#a78bfa"/><stop offset="100%" stop-color="#6366f1"/></linearGradient></defs>
+        </svg>
+      </div>
+      <h1>QuizMaster</h1>
+      <p class="tagline">Challenge yourself with 10 hand-picked questions across Web Development, JavaScript &amp; Computer Science.</p>
+      <div class="features">
+        <div class="feature-card">
+          <span class="feature-icon">📝</span>
+          <span>10 Questions</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">⚡</span>
+          <span>Instant Feedback</span>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">📊</span>
+          <span>Detailed Results</span>
+        </div>
+      </div>
+      <button id="btn-start" class="btn-primary" onclick="startQuiz()">
+        Start Quiz
+        <span class="btn-arrow">→</span>
+      </button>
+    </div>
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-orb orb-3"></div>
+  </section>
+
+  <!-- ═══════════════ QUIZ SCREEN ═══════════════ -->
+  <section id="quiz-screen" class="screen">
+    <div class="quiz-container">
+      <!-- Header -->
+      <div class="quiz-header">
+        <div class="quiz-meta">
+          <span id="quiz-category" class="category-badge">Web Development</span>
+          <span id="quiz-counter" class="question-counter">1 / 10</span>
+        </div>
+        <div class="progress-track">
+          <div id="progress-bar" class="progress-fill" style="width: 10%"></div>
+        </div>
+      </div>
+
+      <!-- Question -->
+      <div id="question-card" class="question-card">
+        <h2 id="question-text" class="question-text">Loading question…</h2>
+      </div>
+
+      <!-- Options -->
+      <div id="options-container" class="options-container">
+        <!-- Options are injected via JS -->
+      </div>
+
+      <!-- Feedback -->
+      <div id="feedback-box" class="feedback-box hidden">
+        <div id="feedback-icon" class="feedback-icon">✓</div>
+        <p id="feedback-text" class="feedback-text"></p>
+      </div>
+
+      <!-- Navigation -->
+      <div class="quiz-nav">
+        <button id="btn-next" class="btn-primary hidden" onclick="nextQuestion()">
+          Next Question
+          <span class="btn-arrow">→</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ RESULTS SCREEN ═══════════════ -->
+  <section id="results-screen" class="screen">
+    <div class="results-container">
+      <h2 class="results-title">Quiz Complete!</h2>
+
+      <!-- Score Ring -->
+      <div class="score-ring-wrapper">
+        <svg class="score-ring" viewBox="0 0 160 160">
+          <circle class="score-ring-bg" cx="80" cy="80" r="70" />
+          <circle id="score-ring-fill" class="score-ring-fill" cx="80" cy="80" r="70" />
+        </svg>
+        <div class="score-center">
+          <span id="score-percent" class="score-percent">0%</span>
+          <span id="score-label" class="score-label">0 / 10</span>
+        </div>
+      </div>
+
+      <!-- Grade -->
+      <div id="grade-badge" class="grade-badge">A+</div>
+
+      <!-- Review -->
+      <div id="review-list" class="review-list">
+        <!-- Injected via JS -->
+      </div>
+
+      <button id="btn-retry" class="btn-primary" onclick="restartQuiz()">
+        Try Again
+        <span class="btn-arrow">↻</span>
+      </button>
+    </div>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>
